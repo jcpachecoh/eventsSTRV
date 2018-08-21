@@ -1,0 +1,410 @@
+html {
+  top: 0;
+  left: 0;
+  background-color: #F9F9FB; }
+
+@font-face {
+  font-family: 'Hind-Bold';
+  src: url("./Fonts/Hind/Hind-Bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Hind-Light';
+  src: url("./Fonts/Hind/Hind-Light.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Hind-Medium';
+  src: url("./Fonts/Hind/Hind-Medium.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Hind-Regular';
+  src: url("./Fonts/Hind/Hind-Regular.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'Hind-SemiBold';
+  src: url("./Fonts/Hind/Hind-SemiBold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'PlayfairDisplay-Black';
+  src: url("./Fonts/Playfair_Display/PlayfairDisplay-Black.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'PlayfairDisplay-BlackItalic';
+  src: url("./Fonts/Playfair_Display/PlayfairDisplay-BlackItalic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'PlayfairDisplay-Black';
+  src: url("./Fonts/Playfair_Display/PlayfairDisplay-Bold.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'PlayfairDisplay-BlackItalic';
+  src: url("./Fonts/Playfair_Display/PlayfairDisplay-BoldItalic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'PlayfairDisplay-Black';
+  src: url("./Fonts/Playfair_Display/PlayfairDisplay-Italic.ttf") format("truetype"); }
+
+@font-face {
+  font-family: 'PlayfairDisplay-BlackItalic';
+  src: url("./Fonts/Playfair_Display/PlayfairDisplay-Regular.ttf") format("truetype"); }
+
+.main-logo {
+  position: absolute;
+  left: 50px;
+  top: 10px;
+  background-color: #F9F9FB; }
+  .main-logo h2 {
+    font-family: Hind Bold;
+    font-size: 32px;
+    color: #000000;
+    font-weight: 600; }
+
+.logo {
+  font-size: 44px;
+  position: absolute;
+  left: 5%;
+  color: #ffffff;
+  top: 3%;
+  font-family: 'Hind-Bold'; }
+
+.left-banner-footer {
+  position: absolute;
+  top: 70%;
+  color: #ffffff;
+  text-align: center;
+  text-align: center;
+  left: 10%; }
+  .left-banner-footer h1 {
+    font-family: 'PlayfairDisplay-BlackItalic';
+    font-size: 60px; }
+  .left-banner-footer h3 {
+    font-family: 'PlayfairDisplay-Black';
+    font-size: 20px; }
+  .left-banner-footer hr {
+    height: 5px;
+    width: 10%;
+    background-color: #22D486;
+    border: none; }
+
+.sign-up {
+  right: 10px;
+  top: 3%;
+  position: absolute; }
+  .sign-up span {
+    color: #d3d3d3;
+    font-size: 14px;
+    margin-right: 5px;
+    font-family: Hind-light; }
+  .sign-up a {
+    color: #BDC3C9;
+    font-size: 20px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: Hind-Bold; }
+
+button {
+  padding: 20px 100px;
+  background-color: #22D486;
+  color: #ffffff;
+  border-radius: 4px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 22px;
+  cursor: pointer;
+  border: none;
+  margin-top: 30px; }
+
+.left-banner {
+  background: url("https://www.walldevil.com/wallpapers/w02/788496-black-background-star-wars-stormtroopers.jpg") no-repeat center center fixed;
+  width: 30%;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  background-size: cover; }
+
+.right-banner {
+  width: 70%;
+  position: absolute;
+  right: 0;
+  height: 100%; }
+
+.login-header {
+  margin-bottom: 30px; }
+  .login-header h2 {
+    font-family: Hind-Bold;
+    font-size: 40px; }
+  .login-header span {
+    color: #d3d3d3;
+    font-family: PlayfairDisplay-BlackItalic;
+    font-size: 20px; }
+
+.login-box {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); }
+
+.error-span {
+  font-family: Hind-Light;
+  color: #FF7BA4;
+  font-size: 20px; }
+
+.input-box label {
+  top: 20px;
+  font-family: Hind-Light;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+  width: 100%;
+  opacity: 0.5;
+  cursor: text;
+  transition: 0.2s ease all;
+  margin: 0;
+  font-size: 24px; }
+
+.input-box input {
+  border: 0;
+  outline: 0;
+  max-width: 600px;
+  width: 600px;
+  background: transparent;
+  border-bottom: 1px solid #d3d3d3;
+  padding: 5px;
+  font-family: Hind-Bold;
+  font-size: 18px; }
+
+.signup-form {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%); }
+  .signup-form .signup-header {
+    margin-bottom: 100px; }
+    .signup-form .signup-header .error-span {
+      font-family: Hind-Light;
+      color: #FF7BA4; }
+    .signup-form .signup-header h2 {
+      font-family: Hind-Bold;
+      font-size: 40px; }
+    .signup-form .signup-header span {
+      color: #d3d3d3;
+      font-family: PlayfairDisplay-BlackItalic;
+      font-size: 20px; }
+
+.user-data {
+  position: absolute;
+  top: 3%;
+  right: 5%; }
+  .user-data button {
+    border-radius: 50%;
+    padding: 25px 25px;
+    color: #ffffff;
+    background-color: #BDC3C9;
+    font-family: Hind-Bold; }
+  .user-data span {
+    margin-left: 15px;
+    font-family: Hind-Light;
+    font-size: 18px;
+    color: #BDC3C9; }
+    .user-data span:after {
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-top: 8px solid #BDC3C9;
+      content: '';
+      position: absolute;
+      top: 66px;
+      right: -23px; }
+
+.event-list {
+  padding-right: 100px;
+  padding-left: 100px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 200px;
+  background-color: #F9F9FB; }
+  .event-list .loading-container {
+    margin: 100px 500px; }
+  .event-list .events-header .events-header-titles {
+    display: inline; }
+    .event-list .events-header .events-header-titles li {
+      display: inline;
+      left: 10px;
+      padding: 0px 10px; }
+      .event-list .events-header .events-header-titles li a {
+        font-family: Hing Bold;
+        font-size: 20px;
+        color: #000000;
+        text-align: left;
+        cursor: pointer;
+        text-decoration: none; }
+  .event-list .events-header .events-header-buttons {
+    float: right; }
+    .event-list .events-header .events-header-buttons li {
+      display: inline;
+      left: 10px;
+      padding: 0px 10px; }
+      .event-list .events-header .events-header-buttons li a {
+        font-family: Hing Bold;
+        font-size: 20px;
+        color: #000000;
+        text-align: left;
+        cursor: pointer;
+        text-decoration: none; }
+  .event-list .event-box {
+    background-color: #ffffff;
+    margin: 20px 5px;
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 10px 10px;
+    border: none;
+    box-shadow: 2px 5px #d3d3d3;
+    border-radius: 5px; }
+    .event-list .event-box > span {
+      width: 100%;
+      text-align: center;
+      font-size: 30px; }
+    .event-list .event-box .event-title {
+      font-family: Hind Bold;
+      font-size: 24px;
+      padding-left: 5px;
+      padding-right: 10px;
+      padding-top: 15px;
+      font-weight: 600; }
+    .event-list .event-box .event-description {
+      font-family: Hind Light;
+      padding-left: 5px;
+      padding-right: 20px;
+      padding-top: 20px;
+      font-size: 16px;
+      color: #d3d3d3; }
+    .event-list .event-box .event-author {
+      font-family: Hind Bold;
+      padding-left: 5px;
+      padding-right: 20px;
+      padding-top: 20px;
+      font-size: 20px;
+      color: #BDC3C9;
+      font-weight: 600; }
+    .event-list .event-box .event-date {
+      font-family: Hind Light;
+      padding-left: 5px;
+      padding-right: 20px;
+      padding-top: 20px;
+      font-size: 16px;
+      color: #d3d3d3; }
+    .event-list .event-box .event-capacity {
+      font-family: Hind Bold;
+      padding-left: 5px;
+      padding-right: 20px;
+      padding-top: 20px;
+      font-size: 20px;
+      color: #BDC3C9;
+      font-weight: 600; }
+    .event-list .event-box button {
+      height: 60px;
+      padding: 17px 50px;
+      margin-top: 10px;
+      font-family: Hind Bold;
+      font-size: 20px; }
+
+.plus-button {
+  position: absolute;
+  top: 85%;
+  right: 50px; }
+  .plus-button button {
+    border-radius: 50%;
+    padding: 25px 25px;
+    background-color: #323C46;
+    color: #ffffff;
+    margin-top: 0; }
+
+.events-add {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  background-color: #ffffff;
+  border-radius: 5px 5px;
+  border: none;
+  padding: 120px 100px;
+  box-shadow: 5px 2px #d3d3d3; }
+  .events-add .time_picker_container {
+    width: 600px; }
+  .events-add .error-span {
+    margin: 10px 10px;
+    font-size: 20px; }
+  .events-add button {
+    color: #ffffff;
+    background-color: #22D486;
+    padding: 20px 30px;
+    border-radius: 5px 5px;
+    font-size: 20px;
+    font-family: Hing Bold;
+    text-align: center;
+    border: none;
+    font-weight: 600;
+    position: absolute;
+    left: 35%; }
+
+.close-button {
+  position: absolute;
+  top: 5%;
+  right: 50px;
+  font-size: 20px;
+  font-family: Hind Bold; }
+  .close-button a {
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer; }
+
+.profile-header {
+  background-color: #ffffff;
+  text-align: center;
+  padding: 20px 10px;
+  margin-bottom: 40px; }
+  .profile-header .profile-icon {
+    font-size: 76px;
+    border-radius: 50%;
+    color: #323C46;
+    font-family: Hind Bold;
+    background-color: #d3d3d3;
+    width: 150px;
+    margin: 0 auto; }
+  .profile-header .profile-data .name {
+    font-family: Hind Bold;
+    font-size: 20px;
+    color: #000000;
+    font-weight: 600; }
+  .profile-header .profile-data .email {
+    font-family: Hind Regular;
+    font-size: 18px;
+    color: #BDC3C9; }
+
+.profile-header-titles {
+  display: inline; }
+  .profile-header-titles span {
+    font-family: Hind Bold;
+    font-size: 32px;
+    font-weight: 600;
+    color: #000000;
+    padding: 10px 30px;
+    margin-top: 30px; }
+
+.profile-header-buttons {
+  float: right; }
+  .profile-header-buttons li {
+    display: inline;
+    left: 10px;
+    padding: 0px 10px; }
+    .profile-header-buttons li a {
+      font-family: Hing Bold;
+      font-size: 20px;
+      color: #000000;
+      text-align: left;
+      cursor: pointer;
+      text-decoration: none; }

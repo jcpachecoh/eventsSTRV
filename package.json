@@ -1,0 +1,44 @@
+{
+  "name": "events-strv-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "gulp": "^3.9.1",
+    "gulp-sass": "^4.0.1",
+    "gulp-sass-lint": "^1.4.0",
+    "lodash": "^4.17.10",
+    "moment": "^2.22.2",
+    "react": "^16.4.2",
+    "react-bootstrap": "^0.32.1",
+    "react-day-picker": "^7.1.10",
+    "react-dom": "^16.4.2",
+    "react-redux": "^5.0.7",
+    "react-router": "^4.3.1",
+    "react-router-dom": "^4.3.1",
+    "react-router-redux": "^5.0.0-alpha.9",
+    "react-scripts-ts": "2.17.0",
+    "react-times": "^3.1.9",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.3.0"
+  },
+  "scripts": {
+    "start": "react-scripts-ts start",
+    "build": "react-scripts-ts build",
+    "test": "react-scripts-ts test --env=jsdom",
+    "eject": "react-scripts-ts eject"
+  },
+  "devDependencies": {
+    "@types/history": "^4.7.0",
+    "@types/jest": "^23.3.1",
+    "@types/node": "^10.5.7",
+    "@types/react": "^16.4.8",
+    "@types/react-bootstrap": "^0.32.11",
+    "@types/react-dom": "^16.0.7",
+    "@types/react-redux": "^6.0.6",
+    "@types/react-router-dom": "^4.3.0",
+    "@types/react-router-redux": "^5.0.15",
+    "moment-timezone": "^0.5.21",
+    "typescript": "^3.0.1",
+    "webfontloader": "^1.6.28"
+  }
+}
