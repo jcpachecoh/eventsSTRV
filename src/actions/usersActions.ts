@@ -19,6 +19,8 @@ export const HANDLE_SHOW_ERROR = 'HandleShowError';
 export type HANDLE_SHOW_ERROR = typeof HANDLE_SHOW_ERROR;
 export const SET_USER_DATA = 'SetUserData';
 export type SET_USER_DATA = typeof SET_USER_DATA;
+export const SET_ERROR_MODAL = 'SetErrorModal';
+export type SET_ERROR_MODAL = typeof SET_ERROR_MODAL;
 
 export class HandleEmail implements IAction {
   type: HANDLE_EMAIL;
@@ -124,6 +126,7 @@ export function redirectToProfile(): any {
 export function logout(): any {
   return(dispatch: any) => {
     localStorage.setItem('token', '');
+    dispatch(setErrorModal(false));
     dispatch(push('/auth'));
   };
 }
@@ -194,9 +197,22 @@ export function submitSignUp(): any {
     }
   };
 }
+export class SetErrorModal implements IAction {
+  type: SET_ERROR_MODAL;
+  payload: boolean;
+}
+
+export function setErrorModal(value: boolean): SetErrorModal {
+  return {
+    payload: value,
+    type: SET_ERROR_MODAL
+  };
+}
+
 export function handleErrorPrompt(status: number, statusText: string) {
   return (dispatch: any) => {
     console.log('erros' + status, statusText);
+    dispatch(setErrorModal(true));
   };
 }
 export type UsersActions =
@@ -206,4 +222,5 @@ export type UsersActions =
   HandleFirstName |
   HandleLastName |
   HandleShowError |
-  SetUserData;
+  SetUserData |
+  SetErrorModal;

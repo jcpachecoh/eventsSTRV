@@ -1,17 +1,19 @@
 .event-list
-    padding-right: 100px
-    padding-left: 100px
+    padding-right: 150px
+    padding-left: 150px
     margin-right: auto
     margin-left: auto
     margin-top: 200px
     background-color: $bg-color
 
     .loading-container
-        margin: 100px 500px
+        margin: 0 auto
+        text-align: center
 
     .events-header
+        display: flex
         .events-header-titles
-            display: inline
+            width: 90%
             li
                 display: inline
                 left: 10px
@@ -26,74 +28,89 @@
                     text-decoration: none
 
         .events-header-buttons
-            float: right
             li
                 display: inline
                 left: 10px
                 padding: 0px 10px
                 a
                     font-family: Hing Bold
-                    font-size: 20px
+                    font-size: 30px
                     color: $black
                     text-align: left
                     cursor: pointer
                     text-decoration: none
 
+    .event-box-grid
+        display: inhe
+
     .event-box
         background-color: $white
         margin: 20px 5px
         display: flex
-        flex-wrap: nowrap
+        flex-direction: row
         padding: 10px 10px
         border: none
-        box-shadow: 2px 5px $light-gray
+        box-shadow: 2px 5px $letter-gray
         border-radius: 5px
+        max-height: 200px
 
         > span
             width: 100%
             text-align: center
             font-size: 30px
-        .event-title
+
+        a
             font-family: Hind Bold
             font-size: 24px
             padding-left: 5px
             padding-right: 10px
             padding-top: 15px
             font-weight: 600
+            color: $black-button
+            text-decoration: none
+            cursor: pointer
+            min-width: 25%
 
         .event-description
-            font-family: Hind Light
+            font-family: Hind Bold
             padding-left: 5px
             padding-right: 20px
             padding-top: 20px
-            font-size: 16px
-            color: $light-gray
-        
+            font-size: 24px
+            color: $letter-gray
+            min-width: 25%
+            overflow: hidden
+            text-overflow: ellipsis
+            text-align: left
+
         .event-author
-            font-family: Hind Bold  
+            font-family: Hind Bold
             padding-left: 5px
             padding-right: 20px
             padding-top: 20px
-            font-size: 20px
+            font-size: 24px
             color: $dark-gray
             font-weight: 600
-        
+            min-width: 12.5%
+
         .event-date
-            font-family: Hind Light
+            font-family: Hind Bold
             padding-left: 5px
             padding-right: 20px
             padding-top: 20px
-            font-size: 16px
-            color: $light-gray
-        
+            font-size: 24px
+            color: $letter-gray
+            min-width: 12.5%
+
         .event-capacity
-            font-family: Hind Bold  
+            font-family: Hind Bold
             padding-left: 5px
             padding-right: 20px
             padding-top: 20px
             font-size: 20px
             color: $dark-gray
             font-weight: 600
+            min-width: 12.5%
 
         button
             height: 60px
@@ -101,5 +118,13 @@
             margin-top: 10px
             font-family: Hind Bold
             font-size: 20px
+
+        .edit-button
+            background-color: $light-gray
+            color: $dark-gray
+
+        .leave-button
+            background-color: $error-color
+            color: $white
 
 

@@ -5,10 +5,12 @@ import { EventsActions, getEventsProfile } from '../../../actions/eventsActions'
 import { Logo } from '../../logo';
 import ProfileTitles from './ProfileTitles';
 import { ProfileHeader } from './ProfileHeader';
-import { EventBox } from '../../events/EventBox';
+import EventBox from '../../events/EventBox';
 import { Event } from '../../../models/event';
 import { parseJwt } from '../../../scripts/index';
 import UserData from '../../user/UserData';
+import ModalError from '../ModalError';
+import { mockUser } from '../../../constants/index';
 
 interface IEventListProps {
   events: Event[];
@@ -24,7 +26,7 @@ class EventList extends React.Component<IEventListProps, IEventListState> {
     super(props);
 
     this.state = {
-      userLoggedData: parseJwt(localStorage.getItem('token'))
+      userLoggedData: localStorage.getItem('token') ? parseJwt(localStorage.getItem('token')) : mockUser,
     };
   }
 
@@ -47,15 +49,16 @@ class EventList extends React.Component<IEventListProps, IEventListState> {
           )}
           {!loading &&
             this.props.events &&
-              this.props.events.map((item: Event, index) => {
-                return (
-                  <div key={index}>
-                    <EventBox event={item} />
-                  </div>
-                );
-              })
+            this.props.events.map((item: Event, index) => {
+              return (
+                <div key={index}>
+                  <EventBox event={item} />
+                </div>
+              );
+            })
           }
         </div>
+        <ModalError />
       </div>
     );
   }

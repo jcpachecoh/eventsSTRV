@@ -1,5 +1,5 @@
 import * as React from 'react';
-export class Logo extends React.Component<{}, {}> {
+export class Logo extends React.Component<any, any> {
   public render() {
     return (
       <div className="main-logo">

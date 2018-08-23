@@ -1,13 +1,19 @@
 .left-banner
-    background: url('https://www.walldevil.com/wallpapers/w02/788496-black-background-star-wars-stormtroopers.jpg') no-repeat center center fixed
+    background: url(../assets/images/788496-black-background-star-wars-stormtroopers.jpg) no-repeat center center fixed
     width: 30%
     position: absolute
     left: 0
     height: 100%
     background-size: cover
 
+    @media only screen and (max-width: $break-small)
+        display: none
+
 .right-banner
     width: 70%
     position: absolute
     right: 0
     height: 100%
+
+    @media only screen and (max-width: $break-small)
+        width: 100%

@@ -18,11 +18,13 @@ import 'react-day-picker/lib/style.css';
 import TimePicker from 'react-times';
 import 'react-times/css/material/default.css';
 import 'react-times/css/classic/default.css';
+import ModalError from '../user/ModalError';
 
 interface IAddEventProps {
   title: string;
   description: string;
   capacity: number;
+  date: Date;
   handleTitle: Function;
   handleDescription: Function;
   handleDate: Function;
@@ -30,6 +32,7 @@ interface IAddEventProps {
   handleCapacity: Function;
   errorForm: any;
   submitAddEvent: Function;
+  editFlag: boolean;
 }
 
 class AddEvent extends React.Component<IAddEventProps, {}> {
@@ -38,13 +41,15 @@ class AddEvent extends React.Component<IAddEventProps, {}> {
       title,
       description,
       capacity,
+      date,
       handleTitle,
       handleDescription,
       handleDate,
       handleTime,
       handleCapacity,
       errorForm,
-      submitAddEvent
+      submitAddEvent,
+      editFlag
     } = this.props;
     return (
       <div>
@@ -60,45 +65,62 @@ class AddEvent extends React.Component<IAddEventProps, {}> {
           </div>
           <div className="input-box">
             <label>{appLabels.description}</label>
-            <input type="text" value={description} onChange={(e: any) => handleDescription(e.target.value)}/>
+            <input type="text" value={description} onChange={(e: any) => handleDescription(e.target.value)} />
             {errorForm.description && <div className="error-span">{errorForm.description}</div>}
           </div>
           <div className="input-box">
             <label>{appLabels.date}</label>
-             <DayPickerInput onDayChange={day => handleDate(day)} month={new Date(2015, 8)} />
-             {errorForm.date && <div className="error-span">{errorForm.date}</div>}
+            <DayPickerInput
+              value={date}
+              onDayChange={(day) => handleDate(day)}
+              month={new Date()}
+              dayPickerProps={{
+                selectedDays: date,
+                disabledDays: {before: new Date() }
+              }}
+            />
+            {errorForm.date && <div className="error-span">{errorForm.date}</div>}
           </div>
           <div className="input-box">
             <label>{appLabels.time}</label>
             <TimePicker
-                focused={false}
-                onTimeChange={(time) => { handleTime(time); console.log(time);
-                }}
-                theme="classic"
+              focused={false}
+              onTimeChange={(time) => {
+                handleTime(time);
+              }}
+              theme="classic"
             />
             {errorForm.time && <div className="error-span">{errorForm.time}</div>}
           </div>
           <div className="input-box">
             <label>{appLabels.capacity}</label>
             <input type="text" value={capacity} onChange={(e: any) => handleCapacity(e.target.value)} />
-             {errorForm.capacity && <div className="error-span">{errorForm.capacity}</div>}
+            {errorForm.capacity && <div className="error-span">{errorForm.capacity}</div>}
           </div>
           <div className="button-box">
-            <button onClick={() => submitAddEvent()}>CREATE NEW EVENT</button>
+            {!editFlag && <button onClick={() => submitAddEvent('add')}>CREATE NEW EVENT</button>}
+            {editFlag && (
+              <button className="edit-button" onClick={() => submitAddEvent('edit')}>
+                EDIT EVENT
+              </button>
+            )}
           </div>
         </div>
+        <ModalError />
       </div>
     );
   }
 }
 
-type ConnectedStateProps = Pick<IAddEventProps, 'title' | 'description' | 'capacity' | 'errorForm'>;
-export function mapStateToProps({ eventsReducer: { event, errorForm } }: any): ConnectedStateProps {
+type ConnectedStateProps = Pick<IAddEventProps, 'title' | 'description' | 'capacity' | 'errorForm' | 'editFlag' | 'date'>;
+export function mapStateToProps({ eventsReducer: { event, errorForm, editFlag } }: any): ConnectedStateProps {
   return {
     title: event.title,
     description: event.description,
     capacity: event.capacity,
-    errorForm: errorForm
+    date: event.date,
+    errorForm: errorForm,
+    editFlag: editFlag
   };
 }
 
@@ -111,10 +133,10 @@ export function mapDispatchToProps(dispatch: Dispatch<EventsActions>): Connected
   return {
     handleTitle: (value: string) => dispatch(handleTitle(value)),
     handleDescription: (value: string) => dispatch(handleDescription(value)),
-    handleDate: (value: string) => dispatch(handleDate(value)),
+    handleDate: (value: Date) => dispatch(handleDate(value)),
     handleTime: (value: string) => dispatch(handleTime(value)),
     handleCapacity: (value: number) => dispatch(handleCapacity(value)),
-    submitAddEvent: () => dispatch(submitAddEvent())
+    submitAddEvent: (value: string) => dispatch(submitAddEvent(value))
   };
 }
 

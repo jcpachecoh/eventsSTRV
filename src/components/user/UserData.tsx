@@ -4,6 +4,7 @@ import { UsersActions, logout, redirectToProfile } from '../../actions/usersActi
 import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import { parseJwt } from '../../scripts/index';
+import { mockUser } from '../../constants/index';
 
 interface IUserDataProps {
   userLogged: User;
@@ -21,12 +22,12 @@ class UserData extends React.Component<IUserDataProps, IUserDataState> {
     super(props);
     this.state = {
       showSubMenu: false,
-      userLoggedData: parseJwt(localStorage.getItem('token'))
+      userLoggedData: localStorage.getItem('token') ? parseJwt(localStorage.getItem('token')) : mockUser
     };
   }
   public render() {
     const { logout, redirectToProfile } = this.props,
-    userLoggedData = this.state.userLoggedData;
+      userLoggedData = this.state.userLoggedData;
 
     return (
       <div className="user-data">
@@ -35,11 +36,11 @@ class UserData extends React.Component<IUserDataProps, IUserDataState> {
             this.setState({ showSubMenu: !this.state.showSubMenu });
           }}
         >
-          {userLoggedData.user.firstName && userLoggedData.user.firstName.substring(0, 2).toUpperCase()}
+          <span>{userLoggedData.user.firstName && userLoggedData.user.firstName.substring(0, 2).toUpperCase()}</span>
+          {userLoggedData.user.firstName && userLoggedData.user.firstName}{' '}
+          {userLoggedData.user.lastName && userLoggedData.user.lastName}
         </button>
-        <span>
-          {userLoggedData.user.firstName && userLoggedData.user.firstName} {userLoggedData.user.lastName && userLoggedData.user.lastName}
-        </span>
+
         {this.state.showSubMenu && (
           <ul className="user-data-submenu">
             <li>

@@ -6,6 +6,7 @@ import EventList from './components/events/EventList';
 import AddEvent from './components/events/AddEvent';
 import Signup from './components/authentication/login/Signup';
 import Profile from './components/user/Profile/Profile';
+import EventDetail from './components/events/EventDetails/EventDetail';
 
 const NoMatch = () => (
   <div className="container">
@@ -19,7 +20,18 @@ const NoMatch = () => (
 );
 
 export class ConnectedRoot extends React.Component<any, any> {
-  renderAuthentication = () => (!localStorage.getItem('token') ? <Authentication /> : <Redirect to="/eventList" />);
+  componentDidMount() {
+    if (window.location.pathname === '' || window.location.pathname === '/') {
+      window.location.href = '/auth';
+    }
+  }
+  renderAuthentication = () => {
+    if (!localStorage.getItem('token')) {
+      return <Authentication />;
+    } else {
+      return <Redirect path="*" to="/eventList" /> ;
+    }
+  }
 
   renderEventList = () => (localStorage.getItem('token') ? <EventList /> : <Redirect path="*" to="/auth" />);
 
@@ -28,6 +40,10 @@ export class ConnectedRoot extends React.Component<any, any> {
   renderAddUser = () => (!localStorage.getItem('token') ? <Signup /> : <Redirect path="*" to="/auth" />);
 
   renderProfile = () => (localStorage.getItem('token') ? <Profile /> : <Redirect path="*" to="/auth" />);
+
+  renderEventDetail = () => (localStorage.getItem('token') ? <EventDetail /> : <Redirect path="*" to="/auth" />);
+
+  // renderHome = () => (true ? <Redirect path="*" to="/auth" /> : null );
   render() {
     return (
       <div className="root-container">
@@ -37,6 +53,7 @@ export class ConnectedRoot extends React.Component<any, any> {
           <Route path="/addEvent" render={this.renderAddEvent} />
           <Route path="/signup" render={this.renderAddUser} />
           <Route path="/profile" render={this.renderProfile} />
+          <Route path="/eventDetail/:id" render={this.renderEventDetail} />
           <Route component={NoMatch} />
         </Switch>
       </div>

@@ -1,3 +1,4 @@
+import { SET_ERROR_MODAL } from '../actions/usersActions';
 import { HANDLE_EMAIL,
   UsersActions, HANDLE_PASSWORD,
   HANDLE_FIRST_NAME,
@@ -15,7 +16,8 @@ export const defaultUser = {
   lastName: '',
   firstName: '',
   showError: false,
-  userLogged: {}
+  userLogged: {},
+  showErrorModal: false
 };
 
 export const userReducer = (state = defaultUser, action: UsersActions) => {
@@ -44,9 +46,13 @@ export const userReducer = (state = defaultUser, action: UsersActions) => {
       return newObject(state, {
         showError: action.payload
       });
-    case SET_USER_DATA: 
+    case SET_USER_DATA:
       return newObject(state, {
         userLogged: action.payload
+      });
+    case SET_ERROR_MODAL:
+      return newObject(state, {
+        showErrorModal: action.payload
       });
     default:
       return state;

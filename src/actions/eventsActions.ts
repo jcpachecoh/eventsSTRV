@@ -25,6 +25,12 @@ export const SET_LOADING = 'SetLoading';
 export type SET_LOADING = typeof SET_LOADING;
 export const HANDLE_ERROR_FORM = 'HandleErrorForm';
 export type HANDLE_ERROR_FORM = typeof HANDLE_ERROR_FORM;
+export const SHOW_CONFIRM = 'ShowConfirm';
+export type SHOW_CONFIRM = typeof SHOW_CONFIRM;
+export const SET_EVENT = 'SetEvent';
+export type SET_EVENT = typeof SET_EVENT;
+export const SET_EDIT_FLAG = 'SetEditFlag';
+export type SET_EDIT_FLAG = typeof SET_EDIT_FLAG;
 
 export class HandleTitle implements IAction {
   type: HANDLE_TITLE;
@@ -52,10 +58,10 @@ export function handleDescription(value: string): HandleDescription {
 
 export class HandleDate implements IAction {
   type: HANDLE_DATE;
-  payload: string;
+  payload: Date;
 }
 
-export function handleDate(value: string): HandleDate {
+export function handleDate(value: Date): HandleDate {
   return {
     payload: value,
     type: HANDLE_DATE
@@ -64,10 +70,10 @@ export function handleDate(value: string): HandleDate {
 
 export class HandleTime implements IAction {
   type: HANDLE_TIME;
-  payload: string;
+  payload: any;
 }
 
-export function handleTime(value: string): HandleTime {
+export function handleTime(value: any): HandleTime {
   return {
     payload: value,
     type: HANDLE_TIME
@@ -98,7 +104,81 @@ export function setAllEvents(eventsToRender: Event[]): SetAllEvents {
   };
 }
 
-export function submitAddEvent(): any {
+export class SetEvent implements IAction {
+  type: SET_EVENT;
+  payload: Event;
+}
+
+export function setEvent(eventToRender: Event): SetEvent {
+  return {
+    payload: eventToRender,
+    type: SET_EVENT
+  };
+}
+
+export class SetEditFlag implements IAction {
+  type: SET_EDIT_FLAG;
+  payload: boolean;
+}
+
+export function setEditFlag(value: boolean): SetEditFlag {
+  return {
+    payload: value,
+    type: SET_EDIT_FLAG
+  };
+}
+
+export function editEvent(event: Event): any {
+  return (dispatch: any) => {
+    if (event) {
+      dispatch(setEvent(event));
+      dispatch(setEditFlag(true));
+      dispatch(push('/addEvent'));
+    }
+  };
+}
+export function attentEvent(id: string): any {
+  return(dispatch: any) => {
+    return EventService.AttentEvent(id)
+      .then((response) => {
+        if (!response.ok) {
+          dispatch(handleErrorPrompt(response.status, response.statusText));
+        } else {
+          location.reload();
+          return response.json();
+        }
+      });
+  };
+}
+
+export function leaveEvent(id: string): any {
+  return (dispatch: any) => {
+    return EventService.LeaveEvent(id)
+    .then((response) => {
+      if (!response.ok) {
+        dispatch(handleErrorPrompt(response.status, response.statusText));
+      } else {
+        location.reload();
+        return response.json();
+      }
+    });
+  };
+}
+
+export function deleteEvent(id: string): any {
+  return (dispatch: any) => {
+    return EventService.DeleteEvent(id)
+    .then((response) => {
+      if (!response.ok) {
+        dispatch(handleErrorPrompt(response.status, response.statusText));
+      } else {
+        dispatch(push('/eventList'));
+      }
+    });
+  };
+}
+
+export function submitAddEvent(type: string): any {
   return(dispatch: any, getState: any) => {
     let state = getState(),
       title = state.eventsReducer.event.title,
@@ -106,29 +186,39 @@ export function submitAddEvent(): any {
       date = state.eventsReducer.event.date,
       time = state.eventsReducer.event.time,
       capacity = state.eventsReducer.event.capacity,
-      startsAt = new Date();
+      id = state.eventsReducer.event._id;
+    //   startsAt;
 
-    if (date && time) {
-      startsAt = date.setHours(time.hour);
-    }
-    if (time) {
-      startsAt = date.setMinutes(time.minute);
-    }
+    // if (date && time) {
+    //   startsAt = date.setHours(time.hour, time.minute, 0, 0);
+    // }
 
     if (_.isEmpty(title)) { dispatch(handleErrorForm('title'));  }
     if (_.isEmpty(description)) { dispatch(handleErrorForm('description')); }
     if (!date) { dispatch(handleErrorForm('date'));  }
     if (_.isEmpty(time)) { dispatch(handleErrorForm('time'));  }
     if (_.isEmpty(capacity)) { dispatch(handleErrorForm('capacity'));  }
-
-    return EventService.CreateEvent(title, description, startsAt, capacity)
-            .then((response) => {
-              if (!response.ok) {
-                dispatch(handleErrorPrompt(response.status, response.statusText));
-              } else {
-                return response.json();
-              }
-          });
+    if (type === 'add') {
+        return EventService.CreateEvent(title, description, date, capacity)
+                .then((response) => {
+                  if (!response.ok) {
+                    dispatch(handleErrorPrompt(response.status, response.statusText));
+                  } else {
+                    dispatch(push('/eventList'));
+                    return response.json();
+                  }
+              });
+        } else {
+          return EventService.EditEvent(title, description, date, capacity, id)
+          .then((response) => {
+            if (!response.ok) {
+              dispatch(handleErrorPrompt(response.status, response.statusText));
+            } else {
+              dispatch(push('/eventList'));
+              return response.json();
+            }
+        });
+      }
   };
 }
 
@@ -138,12 +228,33 @@ export function redirectToAddEvent(): any {
   };
 }
 
+export function redirectToEventDetail(id: string): any {
+  return (dispatch: any) => {
+    dispatch(push(`/eventDetail/${id}`));
+  };
+}
 export function redirectToEventList(): any {
   return (dispatch: any) => {
     dispatch(push('/eventList'));
   };
 }
 
+export function getEventDetail(id: string): any {
+  return (dispatch: any) => {
+    return EventService.GetEventDetail(id)
+      .then((response) => {
+        if (!response.ok) {
+          dispatch(handleErrorPrompt(response.status, response.statusText));
+        } else {
+          return response.json();
+        }
+      })
+      .then((data) => {
+        dispatch(setLoading(false));
+        dispatch(setEvent(data));
+      });
+  };
+}
 export function getEvents(): any {
   return (dispatch: any) => {
     return EventService.GetEvents()
@@ -226,6 +337,18 @@ export function handleErrorForm(type: string): HandleErrorForm {
   };
 }
 
+export class ShowConfirm implements IAction {
+  type: SHOW_CONFIRM;
+  payload: boolean;
+}
+
+export function showConfirm(value: boolean): ShowConfirm {
+  return {
+    payload: value,
+    type: SHOW_CONFIRM
+  };
+}
+
 export type EventsActions = SetAllEvents |
 HandleTitle |
 HandleDescription |
@@ -235,4 +358,7 @@ HandleCapacity |
 ChangeTemplate |
 ChangeListView |
 SetLoading |
-HandleErrorForm;
+HandleErrorForm |
+ShowConfirm |
+SetEvent |
+SetEditFlag;

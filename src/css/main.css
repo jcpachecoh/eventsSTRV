@@ -47,6 +47,14 @@ html {
   font-family: 'PlayfairDisplay-BlackItalic';
   src: url("./Fonts/Playfair_Display/PlayfairDisplay-Regular.ttf") format("truetype"); }
 
+.logo {
+  font-size: 44px;
+  position: absolute;
+  left: 5%;
+  color: #ffffff;
+  top: 3%;
+  font-family: 'Hind-Bold'; }
+
 .main-logo {
   position: absolute;
   left: 50px;
@@ -57,14 +65,6 @@ html {
     font-size: 32px;
     color: #000000;
     font-weight: 600; }
-
-.logo {
-  font-size: 44px;
-  position: absolute;
-  left: 5%;
-  color: #ffffff;
-  top: 3%;
-  font-family: 'Hind-Bold'; }
 
 .left-banner-footer {
   position: absolute;
@@ -89,14 +89,19 @@ html {
   right: 10px;
   top: 3%;
   position: absolute; }
+  @media only screen and (max-width: 600px) {
+    .sign-up {
+      left: 20px;
+      top: 75%;
+      position: absolute; } }
   .sign-up span {
-    color: #d3d3d3;
-    font-size: 14px;
+    color: #BDC3C9;
+    font-size: 20px;
     margin-right: 5px;
     font-family: Hind-light; }
   .sign-up a {
     color: #BDC3C9;
-    font-size: 20px;
+    font-size: 28px;
     font-weight: 600;
     text-decoration: none;
     font-family: Hind-Bold; }
@@ -115,18 +120,24 @@ button {
   margin-top: 30px; }
 
 .left-banner {
-  background: url("https://www.walldevil.com/wallpapers/w02/788496-black-background-star-wars-stormtroopers.jpg") no-repeat center center fixed;
+  background: url(../assets/images/788496-black-background-star-wars-stormtroopers.jpg) no-repeat center center fixed;
   width: 30%;
   position: absolute;
   left: 0;
   height: 100%;
   background-size: cover; }
+  @media only screen and (max-width: 600px) {
+    .left-banner {
+      display: none; } }
 
 .right-banner {
   width: 70%;
   position: absolute;
   right: 0;
   height: 100%; }
+  @media only screen and (max-width: 600px) {
+    .right-banner {
+      width: 100%; } }
 
 .login-header {
   margin-bottom: 30px; }
@@ -134,9 +145,12 @@ button {
     font-family: Hind-Bold;
     font-size: 40px; }
   .login-header span {
-    color: #d3d3d3;
+    color: #323C46;
     font-family: PlayfairDisplay-BlackItalic;
     font-size: 20px; }
+  @media only screen and (max-width: 600px) {
+    .login-header {
+      margin-left: 100px; } }
 
 .login-box {
   position: absolute;
@@ -144,35 +158,45 @@ button {
   top: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%); }
+  @media only screen and (max-width: 600px) {
+    .login-box {
+      margin-top: 60px; }
+      .login-box button {
+        margin-left: 100px;
+        margin-top: 100px; } }
 
 .error-span {
   font-family: Hind-Light;
   color: #FF7BA4;
   font-size: 20px; }
 
-.input-box label {
-  top: 20px;
-  font-family: Hind-Light;
-  left: 0;
-  bottom: 0;
-  z-index: 2;
-  width: 100%;
-  opacity: 0.5;
-  cursor: text;
-  transition: 0.2s ease all;
-  margin: 0;
-  font-size: 24px; }
-
-.input-box input {
-  border: 0;
-  outline: 0;
-  max-width: 600px;
-  width: 600px;
-  background: transparent;
-  border-bottom: 1px solid #d3d3d3;
-  padding: 5px;
-  font-family: Hind-Bold;
-  font-size: 18px; }
+.input-box {
+  margin: 20px 0; }
+  @media only screen and (max-width: 600px) {
+    .input-box {
+      padding-left: 10%; } }
+  .input-box label {
+    top: 20px;
+    font-family: Hind-Light;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    width: 100%;
+    opacity: 0.5;
+    cursor: text;
+    transition: 0.2s ease all;
+    margin: 0;
+    font-size: 24px; }
+  .input-box input {
+    border: 0;
+    outline: 0;
+    max-width: 600px;
+    width: 80%;
+    background: transparent;
+    border-bottom: 1px solid #E8E8E8;
+    padding: 5px;
+    font-family: Hind-Bold;
+    font-size: 18px; }
 
 .signup-form {
   position: absolute;
@@ -180,8 +204,46 @@ button {
   top: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%); }
+  @media only screen and (max-width: 600px) {
+    .signup-form {
+      margin-left: 0;
+      margin-right: 0;
+      padding-right: 0;
+      padding-left: 0;
+      position: inherit;
+      transform: none;
+      top: 0;
+      left: 0;
+      width: 100%; }
+      .signup-form .sign-in-text {
+        text-align: center;
+        position: static !important; }
+      .signup-form .button-box {
+        text-align: center;
+        margin-top: 20px; } }
+  .signup-form .sign-in-text span {
+    color: #BDC3C9;
+    font-size: 20px;
+    argin-right: 5px;
+    font-family: Hind-light; }
+  .signup-form .sign-in-text a {
+    color: #BDC3C9;
+    font-size: 28px;
+    font-weight: 600;
+    text-decoration: none;
+    font-family: Hind-Bold; }
+  .signup-form button {
+    text-align: center; }
   .signup-form .signup-header {
     margin-bottom: 100px; }
+    @media only screen and (max-width: 600px) {
+      .signup-form .signup-header {
+        align-items: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-bottom: 0;
+        text-align: center; } }
     .signup-form .signup-header .error-span {
       font-family: Hind-Light;
       color: #FF7BA4; }
@@ -189,26 +251,26 @@ button {
       font-family: Hind-Bold;
       font-size: 40px; }
     .signup-form .signup-header span {
-      color: #d3d3d3;
+      color: #E8E8E8;
       font-family: PlayfairDisplay-BlackItalic;
       font-size: 20px; }
 
 .user-data {
   position: absolute;
-  top: 3%;
+  top: 10px;
   right: 5%; }
   .user-data button {
-    border-radius: 50%;
-    padding: 25px 25px;
-    color: #ffffff;
-    background-color: #BDC3C9;
-    font-family: Hind-Bold; }
-  .user-data span {
     margin-left: 15px;
     font-family: Hind-Light;
-    font-size: 18px;
-    color: #BDC3C9; }
-    .user-data span:after {
+    font-size: 24px;
+    color: #BDC3C9;
+    background-color: #F9F9FB;
+    border: none;
+    outline: none;
+    font-weight: 600; }
+    .user-data button:hover {
+      opacity: 0.7; }
+    .user-data button:after {
       width: 0;
       height: 0;
       border-left: 8px solid transparent;
@@ -216,86 +278,127 @@ button {
       border-top: 8px solid #BDC3C9;
       content: '';
       position: absolute;
-      top: 66px;
-      right: -23px; }
+      top: 60px;
+      right: 60px; }
+    .user-data button span {
+      border-radius: 50%;
+      padding: 25px 25px;
+      color: #BDC3C9;
+      background-color: #E8E8E8;
+      font-family: Hind-Bold;
+      margin-right: 20px;
+      font-size: 24px; }
+  .user-data .user-data-submenu {
+    background-color: #F9F9FB;
+    list-style-type: none;
+    margin-left: 150px;
+    margin-top: 10px; }
+    .user-data .user-data-submenu li {
+      border-bottom: 1px solid #BDC3C9;
+      padding: 5px 15px; }
+      .user-data .user-data-submenu li:hover {
+        background-color: #E8E8E8; }
+      .user-data .user-data-submenu li a {
+        text-decoration: none;
+        font-family: Hind Bold;
+        font-size: 20px;
+        color: #323C46;
+        cursor: pointer;
+        color: #BDC3C9; }
+        .user-data .user-data-submenu li a:hover {
+          color: #ffffff; }
 
 .event-list {
-  padding-right: 100px;
-  padding-left: 100px;
+  padding-right: 150px;
+  padding-left: 150px;
   margin-right: auto;
   margin-left: auto;
   margin-top: 200px;
   background-color: #F9F9FB; }
   .event-list .loading-container {
-    margin: 100px 500px; }
-  .event-list .events-header .events-header-titles {
-    display: inline; }
-    .event-list .events-header .events-header-titles li {
-      display: inline;
-      left: 10px;
-      padding: 0px 10px; }
-      .event-list .events-header .events-header-titles li a {
-        font-family: Hing Bold;
-        font-size: 20px;
-        color: #000000;
-        text-align: left;
-        cursor: pointer;
-        text-decoration: none; }
-  .event-list .events-header .events-header-buttons {
-    float: right; }
+    margin: 0 auto;
+    text-align: center; }
+  .event-list .events-header {
+    display: flex; }
+    .event-list .events-header .events-header-titles {
+      width: 90%; }
+      .event-list .events-header .events-header-titles li {
+        display: inline;
+        left: 10px;
+        padding: 0px 10px; }
+        .event-list .events-header .events-header-titles li a {
+          font-family: Hing Bold;
+          font-size: 20px;
+          color: #000000;
+          text-align: left;
+          cursor: pointer;
+          text-decoration: none; }
     .event-list .events-header .events-header-buttons li {
       display: inline;
       left: 10px;
       padding: 0px 10px; }
       .event-list .events-header .events-header-buttons li a {
         font-family: Hing Bold;
-        font-size: 20px;
+        font-size: 30px;
         color: #000000;
         text-align: left;
         cursor: pointer;
         text-decoration: none; }
+  .event-list .event-box-grid {
+    display: inhe; }
   .event-list .event-box {
     background-color: #ffffff;
     margin: 20px 5px;
     display: flex;
-    flex-wrap: nowrap;
+    flex-direction: row;
     padding: 10px 10px;
     border: none;
-    box-shadow: 2px 5px #d3d3d3;
-    border-radius: 5px; }
+    box-shadow: 2px 5px #DFE2E5;
+    border-radius: 5px;
+    max-height: 200px; }
     .event-list .event-box > span {
       width: 100%;
       text-align: center;
       font-size: 30px; }
-    .event-list .event-box .event-title {
+    .event-list .event-box a {
       font-family: Hind Bold;
       font-size: 24px;
       padding-left: 5px;
       padding-right: 10px;
       padding-top: 15px;
-      font-weight: 600; }
+      font-weight: 600;
+      color: #323C46;
+      text-decoration: none;
+      cursor: pointer;
+      min-width: 25%; }
     .event-list .event-box .event-description {
-      font-family: Hind Light;
+      font-family: Hind Bold;
       padding-left: 5px;
       padding-right: 20px;
       padding-top: 20px;
-      font-size: 16px;
-      color: #d3d3d3; }
+      font-size: 24px;
+      color: #DFE2E5;
+      min-width: 25%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      text-align: left; }
     .event-list .event-box .event-author {
       font-family: Hind Bold;
       padding-left: 5px;
       padding-right: 20px;
       padding-top: 20px;
-      font-size: 20px;
+      font-size: 24px;
       color: #BDC3C9;
-      font-weight: 600; }
+      font-weight: 600;
+      min-width: 12.5%; }
     .event-list .event-box .event-date {
-      font-family: Hind Light;
+      font-family: Hind Bold;
       padding-left: 5px;
       padding-right: 20px;
       padding-top: 20px;
-      font-size: 16px;
-      color: #d3d3d3; }
+      font-size: 24px;
+      color: #DFE2E5;
+      min-width: 12.5%; }
     .event-list .event-box .event-capacity {
       font-family: Hind Bold;
       padding-left: 5px;
@@ -303,17 +406,24 @@ button {
       padding-top: 20px;
       font-size: 20px;
       color: #BDC3C9;
-      font-weight: 600; }
+      font-weight: 600;
+      min-width: 12.5%; }
     .event-list .event-box button {
       height: 60px;
       padding: 17px 50px;
       margin-top: 10px;
       font-family: Hind Bold;
       font-size: 20px; }
+    .event-list .event-box .edit-button {
+      background-color: #E8E8E8;
+      color: #BDC3C9; }
+    .event-list .event-box .leave-button {
+      background-color: #FF7BA4;
+      color: #ffffff; }
 
 .plus-button {
-  position: absolute;
-  top: 85%;
+  position: fixed;
+  bottom: 20px;
   right: 50px; }
   .plus-button button {
     border-radius: 50%;
@@ -332,7 +442,7 @@ button {
   border-radius: 5px 5px;
   border: none;
   padding: 120px 100px;
-  box-shadow: 5px 2px #d3d3d3; }
+  box-shadow: 5px 2px #E8E8E8; }
   .events-add .time_picker_container {
     width: 600px; }
   .events-add .error-span {
@@ -372,7 +482,7 @@ button {
     border-radius: 50%;
     color: #323C46;
     font-family: Hind Bold;
-    background-color: #d3d3d3;
+    background-color: #E8E8E8;
     width: 150px;
     margin: 0 auto; }
   .profile-header .profile-data .name {
@@ -408,3 +518,88 @@ button {
       text-align: left;
       cursor: pointer;
       text-decoration: none; }
+
+.event-detail {
+  padding-right: 150px;
+  padding-left: 150px;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #F9F9FB; }
+  .event-detail .events-detail-header {
+    margin-top: 150px;
+    margin-bottom: 50px;
+    display: flex; }
+    .event-detail .events-detail-header .events-details-header-title {
+      color: #BDC3C9;
+      font-family: Hind Bold;
+      font-size: 24px;
+      text-transform: uppercase;
+      display: inline;
+      width: 85%; }
+    .event-detail .events-detail-header .events-details-header-button {
+      display: inline; }
+      .event-detail .events-detail-header .events-details-header-button button {
+        color: #FF7BA4;
+        background-color: #F9F9FB;
+        border: none;
+        font-family: Hind Bold, serif;
+        font-weight: 600;
+        letter-spacing: 1px;
+        font-size: 20px;
+        padding: 0 0;
+        margin-top: 0; }
+  .event-detail .event-detail-box {
+    display: flex;
+    flex-direction: row; }
+    .event-detail .event-detail-box .event-detail-data {
+      background-color: white;
+      margin-right: 20px;
+      width: 70%;
+      padding: 40px 40px;
+      box-shadow: 2px 2px #E8E8E8;
+      border-radius: 2px 2px; }
+      .event-detail .event-detail-box .event-detail-data .detail-box {
+        border-bottom: 1px solid #E8E8E8;
+        margin: 20px 5px; }
+        .event-detail .event-detail-box .event-detail-data .detail-box label {
+          position: relative;
+          color: #E8E8E8;
+          font-family: Hind SemiBold;
+          font-size: 20px; }
+        .event-detail .event-detail-box .event-detail-data .detail-box span {
+          font-size: 24px;
+          font-family: Hind Bold;
+          display: block;
+          color: #000000; }
+    .event-detail .event-detail-box .event-details-attendes {
+      padding: 20px 10px;
+      background-color: #ffffff;
+      border-radius: 5px 5px;
+      box-shadow: 2px 2px #E8E8E8;
+      height: 400px;
+      margin-left: 20px;
+      width: 800px; }
+      .event-detail .event-detail-box .event-details-attendes h2 {
+        font-size: 36px;
+        font-family: Hind Bold;
+        padding-bottom: 20px; }
+      .event-detail .event-detail-box .event-details-attendes > div {
+        display: inline-block;
+        border-radius: 20px 20px;
+        background-color: #E8E8E8;
+        margin: 10px 15px;
+        padding: 10px 10px;
+        color: #323C46;
+        font-size: 24px;
+        font-family: Hind Bold; }
+
+.check-button {
+  position: fixed;
+  bottom: 20px;
+  right: 50px; }
+  .check-button button {
+    border-radius: 50%;
+    padding: 20px 20px;
+    color: #ffffff;
+    margin-top: 0;
+    font-size: 28px; }

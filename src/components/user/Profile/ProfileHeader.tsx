@@ -5,9 +5,6 @@ interface IProfileHeaderProps {
 }
 
 export class ProfileHeader extends React.Component<IProfileHeaderProps, {}> {
-  componentDidMount() {
-    console.log(this.props.userLoggedData);
-  }
   public render() {
     const { userLoggedData } = this.props;
     return (

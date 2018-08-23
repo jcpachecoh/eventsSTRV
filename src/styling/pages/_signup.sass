@@ -5,8 +5,51 @@
     transform: translate(-50%, -50%)
     -webkit-transform: translate(-50%, -50%)
 
+    @media only screen and (max-width: $break-small)
+        margin-left: 0
+        margin-right: 0
+        padding-right: 0
+        padding-left: 0
+        position: inherit
+        transform: none
+        top: 0
+        left: 0
+        width: 100%
+
+        .sign-in-text
+            text-align: center
+            position: static !important
+        
+        .button-box
+            text-align: center
+            margin-top: 20px
+    
+    .sign-in-text
+        span
+            color: $dark-gray
+            font-size: 20px
+            argin-right: 5px
+            font-family: Hind-light
+
+        a
+            color: $dark-gray
+            font-size: 28px
+            font-weight: 600
+            text-decoration: none
+            font-family: Hind-Bold
+    button
+        text-align: center
+
     .signup-header
         margin-bottom: 100px
+
+        @media only screen and (max-width: $break-small)
+            align-items: center
+            display: flex
+            flex-direction: column
+            justify-content: center
+            margin-bottom: 0
+            text-align: center
 
         .error-span
             font-family: Hind-Light

@@ -2,12 +2,13 @@ import { Dispatch } from 'redux';
 import { connect } from 'react-redux';
 import * as React from 'react';
 import { EventsActions, getEvents } from '../../actions/eventsActions';
-import { EventBox } from './EventBox';
+import EventBox from './EventBox';
 import { Event } from '../../models/event';
 import UserData from '../user/UserData';
 import EventsHeader from './EventsHeader';
 import { Logo } from '../logo';
 import PlusButton from '../PlusButton';
+import ModalError from '../user/ModalError';
 
 interface IEventListProps {
   events: Event[];
@@ -36,18 +37,16 @@ class EventList extends React.Component<IEventListProps, any> {
               <img src="https://vignette.wikia.nocookie.net/lego/images/b/b4/Loading_Animation.gif/revision/latest/scale-to-width-down/480?cb=20120528032206" />
             </div>
           )}
-          {!loading &&
-            this.props.events &&
+          <div className="event-list-grid">
+            {!loading &&
+              this.props.events &&
               this.props.events.map((item: Event, index) => {
-                return (
-                  <div key={index}>
-                    <EventBox event={item} />
-                  </div>
-                );
-              })
-          }
+                return <EventBox event={item} key={index} />;
+              })}
+          </div>
         </div>
         <PlusButton />
+        <ModalError />
       </div>
     );
   }

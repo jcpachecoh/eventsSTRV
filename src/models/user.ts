@@ -5,7 +5,6 @@ export class User {
   public email: string;
   public createdAt: string;
   public updatedAt: string;
-
   constructor(
     $_id: string,
     $firstName: string,

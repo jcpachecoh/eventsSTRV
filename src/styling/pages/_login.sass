@@ -5,9 +5,12 @@
         font-family: Hind-Bold
         font-size: 40px
     span
-        color: $light-gray
+        color: $black-button
         font-family: PlayfairDisplay-BlackItalic
         font-size: 20px
+
+    @media only screen and (max-width: $break-small)
+        margin-left: 100px
 
 .login-box
     position: absolute
@@ -16,12 +19,24 @@
     transform: translate(-50%, -50%)
     -webkit-transform: translate(-50%, -50%)
 
+    @media only screen and (max-width: $break-small)
+        margin-top: 60px
+        button
+            margin-left: 100px
+            margin-top: 100px
+
+
 .error-span
     font-family: Hind-Light
     color: $error-color
     font-size: 20px
 
 .input-box
+    margin: 20px 0
+
+    @media only screen and (max-width: $break-small)
+        padding-left: 10%
+
     label
         top: 20px
         font-family: Hind-Light
@@ -39,10 +54,11 @@
         border: 0
         outline: 0
         max-width: 600px
-        width: 600px
+        width: 80%
         background: transparent
         border-bottom: 1px solid $light-gray
         padding: 5px
         font-family: Hind-Bold
         font-size: 18px
+
 

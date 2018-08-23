@@ -50,15 +50,9 @@ class SignUp extends React.Component<ISignUpProps, {}> {
       <div className="sign-up-container">
         <LeftBanner />
         <div className="right-banner">
-          <div className="sign-up">
-            <span>Already have an account </span>
-            <a href="" onClick={() => redirectToLogin()}>
-              SIGN IN
-            </a>
-          </div>
           <div className="signup-form">
             <div className="signup-header">
-              <h2>Sign in to event.io</h2>
+              <h2>Get started absolutely free</h2>
               {showError && <span className="error-span">{showError}</span>}
               {!showError && <span>Enter your details below</span>}
             </div>
@@ -80,7 +74,17 @@ class SignUp extends React.Component<ISignUpProps, {}> {
             </div>
             <div className="input-box">
               <label>{appLabels.passwordRepeatLabel}</label>
-              <input type="password" value={passwordRepeat} onChange={(e: any) => handlePasswordRepeat(e.target.value)} />
+              <input
+                type="password"
+                value={passwordRepeat}
+                onChange={(e: any) => handlePasswordRepeat(e.target.value)}
+              />
+            </div>
+            <div className="sign-in-text">
+              <span>Already have an account </span>
+              <a href="" onClick={() => redirectToLogin()}>
+                SIGN IN
+              </a>
             </div>
             <div className="button-box">
               <button onClick={() => submitSignUp()}>SIGN UP</button>

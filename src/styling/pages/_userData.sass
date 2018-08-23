@@ -1,28 +1,65 @@
 .user-data
     position: absolute
-    top: 3%
+    top: 10px
     right: 5%
 
     button
-        border-radius: 50%
-        padding: 25px 25px
-        color: $white
-        background-color: $dark-gray
-        font-family: Hind-Bold
-    
-    span
         margin-left: 15px
         font-family: Hind-Light
-        font-size: 18px
+        font-size: 24px
         color: $dark-gray
+        background-color: $bg-color
+        border: none
+        outline: none
+        font-weight: 600
+
+        &:hover
+            opacity: 0.7
 
         &:after
-            width: 0 
-            height: 0 
+            width: 0
+            height: 0
             border-left: 8px solid transparent
             border-right: 8px solid transparent
             border-top: 8px solid $dark-gray
             content: ''
             position: absolute
-            top: 66px
-            right: -23px
+            top: 60px
+            right: 60px
+
+        span
+            border-radius: 50%
+            padding: 25px 25px
+            color: $dark-gray
+            background-color: $light-gray
+            font-family: Hind-Bold
+            margin-right: 20px
+            font-size: 24px
+
+    .user-data-submenu
+        background-color: $bg-color
+        list-style-type: none
+        margin-left: 150px
+        margin-top: 10px
+
+        li
+            border-bottom: 1px solid $dark-gray
+            padding: 5px 15px
+
+            &:hover
+                background-color: $light-gray
+
+            a
+                text-decoration: none
+                font-family: Hind Bold
+                font-size: 20px
+                color: $black-button
+                cursor: pointer
+                color: $dark-gray
+
+                &:hover
+                    color: $white
+
+
+
+
