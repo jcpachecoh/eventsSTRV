@@ -31,6 +31,8 @@ export const SET_EVENT = 'SetEvent';
 export type SET_EVENT = typeof SET_EVENT;
 export const SET_EDIT_FLAG = 'SetEditFlag';
 export type SET_EDIT_FLAG = typeof SET_EDIT_FLAG;
+export const RESET_EVENT_DATA = 'ResetEditFlag';
+export type RESET_EVENT_DATA = typeof RESET_EVENT_DATA;
 
 export class HandleTitle implements IAction {
   type: HANDLE_TITLE;
@@ -44,6 +46,15 @@ export function handleTitle(value: string): HandleTitle {
   };
 }
 
+export class ResetEventData implements IAction {
+  type: RESET_EVENT_DATA;
+}
+
+export function resetEventData(): ResetEventData {
+  return {
+    type: RESET_EVENT_DATA
+  };
+}
 export class HandleDescription implements IAction {
   type: HANDLE_DESCRIPTION;
   payload: string;
@@ -372,4 +383,5 @@ SetLoading |
 HandleErrorForm |
 ShowConfirm |
 SetEvent |
-SetEditFlag;
+SetEditFlag |
+ResetEventData;

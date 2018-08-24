@@ -1,5 +1,5 @@
 import { errorsForm } from '../constants/index';
-import { HANDLE_ERROR_FORM, SET_EVENT, SHOW_CONFIRM, SET_EDIT_FLAG, SET_LIST_VIEW } from '../actions/eventsActions';
+import { HANDLE_ERROR_FORM, SET_EVENT, SHOW_CONFIRM, SET_EDIT_FLAG, SET_LIST_VIEW, RESET_EVENT_DATA } from '../actions/eventsActions';
 import {
   EventsActions,
   SET_ALL_EVENTS,
@@ -65,6 +65,23 @@ export const eventsReducer = (state = defaultEvent, action: EventsActions) => {
       return {...state, showModal: action.payload };
     case SET_EDIT_FLAG:
       return {...state, editFlag: action.payload };
+    case RESET_EVENT_DATA:
+    return {...state, event: {id: '',
+    title: '',
+    description: '',
+    startsAt: '',
+    capacity: '',
+    owner: {
+      id: '',
+      firstName: '',
+      lastName: '',
+      email: '',
+      createdAt: '',
+      updatedAt: ''
+    },
+    attendees: [],
+    createdAt: '',
+    updatedAt: ''} };
     case SET_LIST_VIEW:
       let listView = action.payload,
         events: any = state.events,

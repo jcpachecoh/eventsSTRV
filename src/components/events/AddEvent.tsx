@@ -8,6 +8,7 @@ import {
   handleDate,
   handleTime,
   handleCapacity,
+  resetEventData,
   submitAddEvent
 } from '../../actions/eventsActions';
 import { Dispatch } from 'redux';
@@ -33,9 +34,15 @@ interface IAddEventProps {
   errorForm: any;
   submitAddEvent: Function;
   editFlag: boolean;
+  resetEventData: Function;
 }
 
 class AddEvent extends React.Component<IAddEventProps, {}> {
+  componentDidMount() {
+    if (!this.props.editFlag) {
+      this.props.resetEventData();
+    }
+  }
   public render() {
     const {
       title,
@@ -126,7 +133,7 @@ export function mapStateToProps({ eventsReducer: { event, errorForm, editFlag } 
 
 type ConnectedDispatchProps = Pick<
   IAddEventProps,
-  'handleTitle' | 'handleDescription' | 'handleDate' | 'handleTime' | 'handleCapacity' | 'submitAddEvent'
+  'handleTitle' | 'handleDescription' | 'handleDate' | 'handleTime' | 'handleCapacity' | 'submitAddEvent' | 'resetEventData'
 >;
 
 export function mapDispatchToProps(dispatch: Dispatch<EventsActions>): ConnectedDispatchProps {
@@ -136,7 +143,8 @@ export function mapDispatchToProps(dispatch: Dispatch<EventsActions>): Connected
     handleDate: (value: Date) => dispatch(handleDate(value)),
     handleTime: (value: string) => dispatch(handleTime(value)),
     handleCapacity: (value: number) => dispatch(handleCapacity(value)),
-    submitAddEvent: (value: string) => dispatch(submitAddEvent(value))
+    submitAddEvent: (value: string) => dispatch(submitAddEvent(value)),
+    resetEventData: () => dispatch(resetEventData())
   };
 }
 

@@ -25,8 +25,8 @@ describe('--------Create EventDetail tests-------------', () => {
     expect(wrapper.length).toEqual(1);
   });
 
-  it('should have a 9 divs', () => {
-    expect(wrapper.find('div')).toHaveLength(9);
+  it('should have a 10 divs', () => {
+    expect(wrapper.find('div')).toHaveLength(10);
   });
   it('should have a 1 button', () => {
     expect(wrapper.find('button')).toHaveLength(2);

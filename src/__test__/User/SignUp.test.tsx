@@ -3,7 +3,7 @@ import * as React from 'react';
 import store from '../../store-index';
 import Signup from '../../components/authentication/login/Signup';
 
-describe('--------Create CheckButton tests-------------', () => {
+describe('--------Create Signup tests-------------', () => {
   let wrapper: any,
     mockFn: Function = jest.fn();
   beforeEach(() => {
@@ -30,8 +30,8 @@ describe('--------Create CheckButton tests-------------', () => {
     expect(wrapper.length).toEqual(1);
   });
 
-  it('should have a 4 divs', () => {
-    expect(wrapper.find('div')).toHaveLength(14);
+  it('should have a 13 divs', () => {
+    expect(wrapper.find('div')).toHaveLength(13);
   });
   it('should have a 2 labels', () => {
     expect(wrapper.find('label')).toHaveLength(5);

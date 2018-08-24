@@ -21,7 +21,7 @@ describe('--------Create Profile tests-------------', () => {
   });
 
   it('should have a 4 divs', () => {
-    expect(wrapper.find('div')).toHaveLength(13);
+    expect(wrapper.find('div')).toHaveLength(14);
   });
   it('should have a 1 button', () => {
     expect(wrapper.find('button')).toHaveLength(1);
