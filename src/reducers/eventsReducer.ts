@@ -1,5 +1,5 @@
 import { errorsForm } from '../constants/index';
-import { HANDLE_ERROR_FORM, SET_EVENT, SHOW_CONFIRM, SET_EDIT_FLAG } from '../actions/eventsActions';
+import { HANDLE_ERROR_FORM, SET_EVENT, SHOW_CONFIRM, SET_EDIT_FLAG, SET_LIST_VIEW } from '../actions/eventsActions';
 import {
   EventsActions,
   SET_ALL_EVENTS,
@@ -65,6 +65,29 @@ export const eventsReducer = (state = defaultEvent, action: EventsActions) => {
       return {...state, showModal: action.payload };
     case SET_EDIT_FLAG:
       return {...state, editFlag: action.payload };
+    case SET_LIST_VIEW:
+      let listView = action.payload,
+        events: any = state.events,
+        currentDate: Date = new Date();
+
+      if (listView === 'Past') {
+        events = events.filter((item) => {
+          return new Date(item.startsAt) < currentDate;
+        });
+      }
+
+      if (listView === 'Future') {
+        events = events.filter((item) => {
+          return new Date(item.startsAt) > currentDate;
+        });
+      }
+
+      if (listView === 'All') {
+        events = state.events;
+      }
+      console.log(events);
+
+      return {...state, events: events };
     case HANDLE_ERROR_FORM:
       let errorForm: any = state.errorForm;
 

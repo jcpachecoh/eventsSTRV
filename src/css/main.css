@@ -62,7 +62,7 @@ html {
   background-color: #F9F9FB; }
   .main-logo h2 {
     font-family: Hind Bold;
-    font-size: 32px;
+    font-size: 48px;
     color: #000000;
     font-weight: 600; }
 
@@ -191,7 +191,7 @@ button {
     border: 0;
     outline: 0;
     max-width: 600px;
-    width: 80%;
+    width: 90%;
     background: transparent;
     border-bottom: 1px solid #E8E8E8;
     padding: 5px;
@@ -258,7 +258,11 @@ button {
 .user-data {
   position: absolute;
   top: 10px;
-  right: 5%; }
+  right: 0; }
+  @media only screen and (max-width: 600px) {
+    .user-data {
+      right: 0;
+      top: 0; } }
   .user-data button {
     margin-left: 15px;
     font-family: Hind-Light;
@@ -268,6 +272,14 @@ button {
     border: none;
     outline: none;
     font-weight: 600; }
+    @media only screen and (max-width: 600px) {
+      .user-data button {
+        padding: 0;
+        margin-right: 30px; }
+        .user-data button div {
+          display: none; } }
+    .user-data button > div {
+      display: inline; }
     .user-data button:hover {
       opacity: 0.7; }
     .user-data button:after {
@@ -280,6 +292,10 @@ button {
       position: absolute;
       top: 60px;
       right: 60px; }
+      @media only screen and (max-width: 600px) {
+        .user-data button:after {
+          right: 30px;
+          top: 40px; } }
     .user-data button span {
       border-radius: 50%;
       padding: 25px 25px;
@@ -288,6 +304,10 @@ button {
       font-family: Hind-Bold;
       margin-right: 20px;
       font-size: 24px; }
+      @media only screen and (max-width: 600px) {
+        .user-data button span {
+          font-size: 22px;
+          padding: 10px 15px; } }
   .user-data .user-data-submenu {
     background-color: #F9F9FB;
     list-style-type: none;
@@ -315,17 +335,34 @@ button {
   margin-left: auto;
   margin-top: 200px;
   background-color: #F9F9FB; }
+  @media only screen and (max-width: 600px) {
+    .event-list {
+      padding-right: 30px;
+      padding-left: 30px; } }
   .event-list .loading-container {
     margin: 0 auto;
     text-align: center; }
+    @media only screen and (max-width: 600px) {
+      .event-list .loading-container {
+        width: 50%;
+        height: 50%; } }
   .event-list .events-header {
     display: flex; }
     .event-list .events-header .events-header-titles {
       width: 90%; }
+      @media only screen and (max-width: 600px) {
+        .event-list .events-header .events-header-titles {
+          padding: 0;
+          margin: 0;
+          list-style: none;
+          position: relative; } }
       .event-list .events-header .events-header-titles li {
         display: inline;
         left: 10px;
         padding: 0px 10px; }
+        @media only screen and (max-width: 600px) {
+          .event-list .events-header .events-header-titles li {
+            display: inline-block; } }
         .event-list .events-header .events-header-titles li a {
           font-family: Hing Bold;
           font-size: 20px;
@@ -356,6 +393,15 @@ button {
     box-shadow: 2px 5px #DFE2E5;
     border-radius: 5px;
     max-height: 200px; }
+    @media only screen and (max-width: 600px) {
+      .event-list .event-box {
+        flex-direction: column;
+        max-height: 100%;
+        text-align: center; }
+        .event-list .event-box > span {
+          font-size: 18px; }
+        .event-list .event-box a {
+          font-size: 18px; } }
     .event-list .event-box > span {
       width: 100%;
       text-align: center;
@@ -382,6 +428,9 @@ button {
       overflow: hidden;
       text-overflow: ellipsis;
       text-align: left; }
+      @media only screen and (max-width: 600px) {
+        .event-list .event-box .event-description {
+          text-align: center; } }
     .event-list .event-box .event-author {
       font-family: Hind Bold;
       padding-left: 5px;
@@ -425,9 +474,12 @@ button {
   position: fixed;
   bottom: 20px;
   right: 50px; }
+  @media only screen and (max-width: 600px) {
+    .plus-button {
+      right: 5px; } }
   .plus-button button {
     border-radius: 50%;
-    padding: 25px 25px;
+    padding: 20px 25px;
     background-color: #323C46;
     color: #ffffff;
     margin-top: 0; }
@@ -599,7 +651,7 @@ button {
   right: 50px; }
   .check-button button {
     border-radius: 50%;
-    padding: 20px 20px;
+    padding: 20px 25px;
     color: #ffffff;
     margin-top: 0;
     font-size: 28px; }

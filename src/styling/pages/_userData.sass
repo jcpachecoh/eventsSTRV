@@ -1,7 +1,10 @@
 .user-data
     position: absolute
     top: 10px
-    right: 5%
+    right: 0
+    @media only screen and (max-width: $break-small)
+        right: 0
+        top: 0
 
     button
         margin-left: 15px
@@ -12,7 +15,13 @@
         border: none
         outline: none
         font-weight: 600
-
+        @media only screen and (max-width: $break-small)
+            padding: 0
+            margin-right: 30px
+            div
+                display: none
+        > div
+            display: inline
         &:hover
             opacity: 0.7
 
@@ -26,6 +35,9 @@
             position: absolute
             top: 60px
             right: 60px
+            @media only screen and (max-width: $break-small)
+                right: 30px
+                top: 40px
 
         span
             border-radius: 50%
@@ -35,6 +47,9 @@
             font-family: Hind-Bold
             margin-right: 20px
             font-size: 24px
+            @media only screen and (max-width: $break-small)
+                font-size: 22px
+                padding: 10px 15px
 
     .user-data-submenu
         background-color: $bg-color

@@ -37,8 +37,10 @@ class UserData extends React.Component<IUserDataProps, IUserDataState> {
           }}
         >
           <span>{userLoggedData.user.firstName && userLoggedData.user.firstName.substring(0, 2).toUpperCase()}</span>
-          {userLoggedData.user.firstName && userLoggedData.user.firstName}{' '}
-          {userLoggedData.user.lastName && userLoggedData.user.lastName}
+          <div>
+            {userLoggedData.user.firstName && userLoggedData.user.firstName}{' '}
+            {userLoggedData.user.lastName && userLoggedData.user.lastName}
+          </div>
         </button>
 
         {this.state.showSubMenu && (

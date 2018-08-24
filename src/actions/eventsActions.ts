@@ -17,8 +17,8 @@ export const HANDLE_TIME = 'HandleTime';
 export type HANDLE_TIME = typeof HANDLE_TIME;
 export const HANDLE_CAPACITY = 'HandleCapacity';
 export type HANDLE_CAPACITY = typeof HANDLE_CAPACITY;
-export const CHANGE_LIST_VIEW = 'ChangeListView';
-export type CHANGE_LIST_VIEW = typeof CHANGE_LIST_VIEW;
+export const SET_LIST_VIEW = 'SetListView';
+export type SET_LIST_VIEW = typeof SET_LIST_VIEW;
 export const CHANGE_TEMPLATE = 'ChangeTemplate';
 export type CHANGE_TEMPLATE = typeof CHANGE_TEMPLATE;
 export const SET_LOADING = 'SetLoading';
@@ -301,15 +301,15 @@ export function changeTemplate(value: string): ChangeTemplate {
   };
 }
 
-export class ChangeListView implements IAction {
-  type: CHANGE_LIST_VIEW;
+export class SetListView implements IAction {
+  type: SET_LIST_VIEW;
   payload: string;
 }
 
-export function changeListView(value: string): ChangeListView {
+export function setListView(value: string): SetListView {
   return {
     payload: value,
-    type: CHANGE_LIST_VIEW
+    type: SET_LIST_VIEW
   };
 }
 
@@ -349,6 +349,17 @@ export function showConfirm(value: boolean): ShowConfirm {
   };
 }
 
+export function changeListView(view: string): any {
+  return (dispatch: any) => {
+    dispatch(setLoading(true));
+    dispatch(getEvents())
+      .then(() => {
+        dispatch(setListView(view));
+      });
+
+  };
+}
+
 export type EventsActions = SetAllEvents |
 HandleTitle |
 HandleDescription |
@@ -356,7 +367,7 @@ HandleDate |
 HandleTime |
 HandleCapacity |
 ChangeTemplate |
-ChangeListView |
+SetListView |
 SetLoading |
 HandleErrorForm |
 ShowConfirm |
