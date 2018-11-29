@@ -2,6 +2,7 @@ import { mount } from 'enzyme';
 import * as React from 'react';
 import store from '../../store-index';
 import Signup from '../../components/authentication/login/Signup';
+import { errorsForm } from '../../constants';
 
 describe('--------Create Signup tests-------------', () => {
   let wrapper: any,
@@ -14,6 +15,10 @@ describe('--------Create Signup tests-------------', () => {
         password={'top secret'}
         firstName={'Bruce'}
         lastName={'Banner'}
+        emailError={errorsForm.email}
+        passwordError={errorsForm.passwordValidation}
+        firstNameError={errorsForm.commonField}
+        lastNameError={errorsForm.commonField}
         handleFirstName={mockFn}
         handleLastName={mockFn}
         handleEmail={mockFn}
